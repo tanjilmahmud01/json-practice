@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const ProductContext = createContext();
 
@@ -39,6 +40,16 @@ export const ProductDataProvider = ({ children }) => {
       remaining.push(addedProduct);
       setCart(remaining);
     }
+    toast("added to the cart", {
+      position: "bottom-left",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   console.log("cart: ", cart);
