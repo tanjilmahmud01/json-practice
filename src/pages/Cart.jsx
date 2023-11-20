@@ -19,7 +19,7 @@ const Cart = () => {
   console.log("cartItemsPrice", cartItemsPrice);
 
   return (
-    <Layout>
+    <Layout title={"Cart"}>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

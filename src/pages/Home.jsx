@@ -11,7 +11,7 @@ const Home = () => {
     useContext(ProductContext);
 
   return (
-    <Layout title={"home"}>
+    <Layout title={"Home"}>
       {/* <MySwiper></MySwiper> */}
       <div className=" container mx-auto lg:w-[1200px]">
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

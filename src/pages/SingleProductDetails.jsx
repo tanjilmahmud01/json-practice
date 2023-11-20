@@ -26,15 +26,15 @@ const SingleProductDetails = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col md:flex-col lg:flex-row gap-4 justify-center  container mx-auto">
-        <div className="w=[100%] border border-green-400">
+      <div className="flex flex-col md:flex-col lg:flex-row gap-8 justify-center  container mx-auto mt-10">
+        <div className="w=[100%]">
           <img
             className="image-full h-[100%]"
             src={productData.thumbnail}
             alt="image picture"
           />
         </div>
-        <div className="w-full md:w-full lg:w-1/2 border border-red-500">
+        <div className="w-full md:w-full lg:w-1/2 ">
           <p className="text-4xl font-semibold flex items-center gap-3">
             {productData.title}{" "}
             <span className="badge badge-accent">{productData.category}</span>
@@ -55,9 +55,9 @@ const SingleProductDetails = () => {
           <button
             onClick={() => addToCart(productData)}
             disabled={productData.stock === 0}
-            className="px-4 py-3 rounded-md font-semibold text-white hover:text-black transition duration-500 bg-green-400 mt-5"
+            className="px-4 py-3  rounded-md font-semibold text-white hover:text-black transition duration-500 bg-green-400 mt-5"
           >
-            add to cart
+            Add to Cart
           </button>
         </div>
       </div>
