@@ -18,15 +18,23 @@ const SingleProductDetails = () => {
       .then((data) => setProductData(data));
   }, []);
 
+  let discountedPrice = (
+    productData.price -
+    (productData.price * productData.discountPercentage) / 100
+  ).toFixed(2);
   console.log("In the Details: ", productData);
 
   return (
     <Layout>
       <div className="flex flex-col md:flex-col lg:flex-row gap-4 justify-center  container mx-auto">
-        <div className="w=[100%]">
-          <img src={productData.thumbnail} alt="image picture" />
+        <div className="w=[100%] border border-green-400">
+          <img
+            className="image-full h-[100%]"
+            src={productData.thumbnail}
+            alt="image picture"
+          />
         </div>
-        <div className="w-full md:w-full lg:w-1/2 ">
+        <div className="w-full md:w-full lg:w-1/2 border border-red-500">
           <p className="text-4xl font-semibold flex items-center gap-3">
             {productData.title}{" "}
             <span className="badge badge-accent">{productData.category}</span>
@@ -36,7 +44,7 @@ const SingleProductDetails = () => {
             ${productData.price}{" "}
           </s>
           <span className="text-green-500 font-semibold text-2xl ms-4">
-            {productData.discountPercentage}% discount
+            ${discountedPrice} (-{productData.discountPercentage}%)
           </span>
           <div className="mt-5">
             Rating: {productData.rating}
@@ -47,7 +55,7 @@ const SingleProductDetails = () => {
           <button
             onClick={() => addToCart(productData)}
             disabled={productData.stock === 0}
-            className="btn btn-secondary hover:text-white transition duration-500 bg-green-400 mt-5"
+            className="px-4 py-3 rounded-md font-semibold text-white hover:text-black transition duration-500 bg-green-400 mt-5"
           >
             add to cart
           </button>
